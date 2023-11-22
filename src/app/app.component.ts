@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParentUser } from './parent-user';
 import { ChildUser } from './child-user';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NewUser } from './new-user';
 
 @Component({
@@ -88,12 +88,12 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
       this.form = new FormGroup({
-        Id: new FormControl(null),
-        Firstname: new FormControl(null),
-        Lastname: new FormControl(null),
-        DateOfBirth: new FormControl(null),
-        PhoneNumber: new FormControl(null),
-        Email: new FormControl(null),
+        Id: new FormControl(null,[Validators.required]),
+        Firstname: new FormControl(null,[Validators.required, Validators.minLength(3)]),
+        Lastname: new FormControl(null,[Validators.required, Validators.minLength(3)]),
+        DateOfBirth: new FormControl(null,[Validators.required]),
+        PhoneNumber: new FormControl(null,[Validators.required, Validators.minLength(9)]),
+        Email: new FormControl(null,[Validators.required, Validators.minLength(8)]),
       })
   }
   Users4: NewUser[] = [];
