@@ -31,3 +31,25 @@
 
 <hr>
 <h1>Reactive Form</h1>
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>First Name:</label>
+  <input type="text" formControlName="Id">
+  <label>First Name:</label>
+  <input type="text" formControlName="Firstname">
+
+  <label>Last Name:</label>
+  <input type="text" formControlName="Lastname">
+
+  <label>Date of Birth:</label>
+  <input  type="email" formControlName="DateOfBirth">
+
+  <label>Phone:</label>
+  <input type="tel" formControlName="PhoneNumber">
+
+  <label>Email:</label>
+  <input type="tel" formControlName="Email">
+
+  <button type="submit">Submit</button>
+</form>

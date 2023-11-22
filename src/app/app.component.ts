@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ParentUser } from './parent-user';
 import { ChildUser } from './child-user';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NewUser } from './new-user';
 
 @Component({
   selector: 'app-root',
@@ -94,5 +95,10 @@ export class AppComponent implements OnInit{
         PhoneNumber: new FormControl(null),
         Email: new FormControl(null),
       })
+  }
+  Users4: NewUser[] = [];
+  onSubmit(){
+    this.Users4.push(this.form.value);
+    console.log(this.Users4)
   }
 }
