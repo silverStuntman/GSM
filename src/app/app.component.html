@@ -1,7 +1,7 @@
 <div *ngFor="let user of Users">
   <ul>
     <li *ngIf="user.age > 20">
-        {{ user.firstname }} {{ user.lastname }} is {{ user.age }} years old
+      {{ user.firstname }} {{ user.lastname }} is {{ user.age }} years old
     </li>
   </ul>
 </div>
@@ -9,11 +9,11 @@
 <hr>
 
 <h1>Date is passed from App.component to User.component</h1>
-<div *ngFor = "let user of Users2">
+<div *ngFor="let user of Users2">
   <div>
     <app-user [inputData]="user"></app-user>
   </div>
-</div> 
+</div>
 <hr>
 
 <h1>Date is passed from User.component to App.component</h1>
@@ -34,22 +34,41 @@
 
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <label>First Name:</label>
-  <input type="text" formControlName="Id">
-  <label>First Name:</label>
-  <input type="text" formControlName="Firstname">
+  <div>
+    <label>ID:</label>
+    <input type="text" formControlName="Id">
+    <small *ngIf="this.form.get('Id').invalid && this.form.get('Id').touched ">*It is required</small>
+  </div>
+  <div>
+    <label>First Name:</label>
+    <input type="text" formControlName="Firstname">
+    <small *ngIf="this.form.get('Firstname').invalid && this.form.get('Firstname').touched ">*It is required</small>
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input type="text" formControlName="Lastname">
+    <small *ngIf="this.form.get('Lastname').invalid && this.form.get('Lastname').touched ">*It is required</small>
 
-  <label>Last Name:</label>
-  <input type="text" formControlName="Lastname">
+  </div>
 
-  <label>Date of Birth:</label>
-  <input  type="email" formControlName="DateOfBirth">
+  <div>
+    <label>Date of Birth:</label>
+    <input type="date" formControlName="DateOfBirth">
+    <small *ngIf="this.form.get('DateOfBirth').invalid && this.form.get('DateOfBirth').touched ">*It is required</small>
 
-  <label>Phone:</label>
-  <input type="tel" formControlName="PhoneNumber">
+  </div>
 
-  <label>Email:</label>
-  <input type="tel" formControlName="Email">
+  <div>
+    <label>Phone:</label>
+    <input type="tel" formControlName="PhoneNumber">
+    <small *ngIf="this.form.get('PhoneNumber').invalid && this.form.get('PhoneNumber').touched ">*It is required</small>
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input type="tel" formControlName="Email">
+    <small *ngIf="this.form.get('Email').invalid && this.form.get('Email').touched ">*It is required</small>
+  </div>
 
   <button type="submit">Submit</button>
 </form>

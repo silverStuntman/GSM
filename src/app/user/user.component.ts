@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ChildUser } from '../child-user';
+import { DisplayService } from '../services/display.service';
 
 @Component({
   selector: 'app-user',
@@ -23,7 +24,7 @@ export class UserComponent implements OnInit {
       Email: 'ttamarashvili@gmail.com'
     },
     {
-      Id: 1,
+      Id: 2,
       Firstname: 'Nick',
       Lastname: 'Khain',
       DateOfBirth: new Date("2004-06-01"),
@@ -31,7 +32,7 @@ export class UserComponent implements OnInit {
       Email: 'Nick@gmail.com'
     },
     {
-      Id: 1,
+      Id: 3,
       Firstname: 'Mikhail',
       Lastname: 'Malafjesky',
       DateOfBirth: new Date("2003-02-07"),
@@ -39,7 +40,7 @@ export class UserComponent implements OnInit {
       Email: 'Mikhail@gmail.com'
     },
     {
-      Id: 1,
+      Id: 4,
       Firstname: 'Nina',
       Lastname: 'Ckhadadze',
       DateOfBirth: new Date("1978-08-023"),
@@ -47,7 +48,7 @@ export class UserComponent implements OnInit {
       Email: 'Nina@gmail.com'
     },
     {
-      Id: 1,
+      Id: 5,
       Firstname: 'Nini',
       Lastname: 'Ruadze',
       DateOfBirth: new Date("1999-12-30"),
@@ -55,7 +56,9 @@ export class UserComponent implements OnInit {
       Email: 'ninir@gmail.com'
     }
   ]
-  sendData() {
-    
+  constructor(private displayService: DisplayService) { }
+
+  displayUsers() {
+    this.displayService.displayArray(this.Users3);
   }
 }
